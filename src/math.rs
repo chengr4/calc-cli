@@ -13,7 +13,7 @@ mod tests {
      use super::*;
 
     #[test]
-    fn test_calc_factorial() {
+    fn calc_factorial_of_3() {
       let fac = calc_factorial(3);
 
       assert_eq!(fac, 6);

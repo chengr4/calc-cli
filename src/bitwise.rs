@@ -18,7 +18,7 @@ mod tests {
      use super::*;
 
     #[test]
-    fn test_count_bit_hamming_weight() {
+    fn count_hamming_weight_of_3() {
       let hw = count_bit_hamming_weight(3);
 
       assert_eq!(hw, 2);
