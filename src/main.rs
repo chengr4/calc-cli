@@ -1,28 +1,34 @@
-use clap::Parser;
-use rfcalc::{math, bitwise};
+use clap::{Parser, Subcommand};
+use rfcalc::{bitwise, math};
 
 #[derive(Parser)]
 struct CliArgs {
+    #[command(subcommand)]
     /// The function to run
-    function: String,
+    calc_function: Functions,
+}
+
+#[derive(Subcommand)]
+enum Functions {
+    /// `factorial <NUM>`: Calculate the factorial of a number (max: 20)
+    Factorial { num: u64 },
+    /// `hw <NUM>`: Calculate the Hamming weight of a binary number
+    HW { num: u64 },
 }
 
 fn main() {
     let args = CliArgs::parse();
 
-    match args.function.as_str() {
-        "bitwise" => {
-            println!("Running bitwise function");
-            println!("-------------------------");
-            println!("count_bit_hamming_weight(3) = {}", bitwise::count_bit_hamming_weight(3));
-        },
-        "math" => {
-            println!("Running math function");
-            println!("-------------------------");
-            println!("calc_factorial(3) = {}", math::calc_factorial(3));
-        },
-        _ => {
-            println!("Unknown function: {}", args.function);
+    // You can check for the existence of subcommands, and if found use their
+    // matches just as you would the top level cmd
+    match &args.calc_function {
+        Functions::Factorial { num } => {
+            let factorial = math::calc_factorial(*num);
+            println!("Factorial of {} is {}", num, factorial);
+        }
+        Functions::HW { num } => {
+            let hw = bitwise::count_bit_hamming_weight(*num);
+            println!("Hamming weight of {} is {}", num, hw);
         }
     }
 }
