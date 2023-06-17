@@ -2,6 +2,14 @@
 name = "rfcalc"
 version = "0.1.0"
 edition = "2021"
+authors = ["R4 Cheng <schaffenneu47@gmail.com>"]
+license = "MIT"
+description = "A tool to calculate things"
+readme = "README.md"
+homepage = "https://github.com/chengr4/calc-cli"
+repository = "https://github.com/chengr4/calc-cli"
+keywords = ["calculator", "math", "cli"]
+categories = ["cli", "math", "calculator"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
