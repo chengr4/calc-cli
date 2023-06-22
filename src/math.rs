@@ -9,7 +9,20 @@ pub fn calc_factorial(num: u64) -> u64 {
 }
 
 pub fn calc_combination(n: u64, k: u64) -> u64 {
-    calc_factorial(n) / (calc_factorial(k) * calc_factorial(n - k))
+  let mut numerator = 1;
+  let mut denominator = 1;
+
+  // loop from n to k
+  for i in (n-k+1)..=n {
+    numerator *= i;
+  }
+
+  // loop from 1 to k
+  for i in 1..=k {
+    denominator *= i;
+  }
+
+  numerator / denominator
 }
 
 #[cfg(test)]
