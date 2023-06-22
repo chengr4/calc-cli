@@ -30,7 +30,7 @@ mod tests {
      use super::*;
 
     #[test]
-    fn calc_factorial_of_3() {
+    fn calc_factorial_of_five() {
       let fac = calc_factorial(3);
 
       assert_eq!(fac, 6);
@@ -41,5 +41,12 @@ mod tests {
       let comb = calc_combination(5, 2);
 
       assert_eq!(comb, 10);
+    }
+
+    #[test]
+    fn c_thiry_chose_two() {
+      let comb = calc_combination(30, 2);
+
+      assert_eq!(comb, 435);
     }
 }
