@@ -6,4 +6,4 @@
 
 - `rfcalc factorial <NUM>`: Calculate the factorial of a number (max: 20)
 - `rfcalc hw <NUM>`: Calculate the Hamming weight of a binary number
-- `refcalc c <N> <K>`: Calculate the combination of `N` choose `K`
+- `rfcalc c <N> <K>`: Calculate the combination of `N` choose `K`
