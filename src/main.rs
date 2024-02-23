@@ -1,5 +1,5 @@
 use clap::{Parser, Subcommand};
-use rfcalc::{bitwise, math};
+use rfcalc::{bitwise, calc};
 
 #[derive(Parser)]
 struct CliArgs {
@@ -25,7 +25,7 @@ fn main() {
     // matches just as you would the top level cmd
     match &args.calc_function {
         Functions::Factorial { num } => {
-            let factorial = math::calc_factorial(*num);
+            let factorial = calc::calc_factorial(*num);
             println!("{}", factorial);
         }
         Functions::HW { num } => {
@@ -33,7 +33,7 @@ fn main() {
             println!("{}", hw);
         }
         Functions::C { n, k } => {
-            let combination = math::calc_combination(*n, *k);
+            let combination = calc::calc_combination(*n, *k);
             println!("{}", combination);
         }
     }
