@@ -27,48 +27,49 @@ pub fn calc_combination(n: u64, k: u64) -> u64 {
     numerator / denominator
 }
 
+/// B: byte
 #[derive(PartialEq, PartialOrd)]
-enum BitUnit {
-    Bit,
+enum ByteUnit {
+    B,
     KB,
     MB,
     GB,
     TB,
 }
 
-impl BitUnit {
+impl ByteUnit {
     fn to_bits(&self) -> u64 {
         match self {
-            BitUnit::Bit => 1,
-            BitUnit::KB => 2u64.pow(10), // 2^10
-            BitUnit::MB => 2u64.pow(20), // 2^20
-            BitUnit::GB => 2u64.pow(30), // 2^30
-            BitUnit::TB => 2u64.pow(40), // 2^40
+            ByteUnit::B => 1,
+            ByteUnit::KB => 2u64.pow(10), // 2^10
+            ByteUnit::MB => 2u64.pow(20), // 2^20
+            ByteUnit::GB => 2u64.pow(30), // 2^30
+            ByteUnit::TB => 2u64.pow(40), // 2^40
         }
     }
 }
 
 pub fn devide_bytes(expression: &str) -> String {
-    let re = Regex::new(r"(?<num1>\d+)\s*(?<unit1>bits|bit|kb|mb|gb|tb)\s*(?<op>/)\s*(?<num2>\d+)\s*(?<unit2>bits|bit|kb|mb|gb|tb)").unwrap();
+    let re = Regex::new(r"(?<num1>\d+)\s*(?<unit1>byte|bytes|kb|mb|gb|tb)\s*(?<op>/)\s*(?<num2>\d+)\s*(?<unit2>byte|bytes|kb|mb|gb|tb)").unwrap();
     if let Some(caps) = re.captures(expression) {
         let num1: u64 = caps.name("num1").unwrap().as_str().parse().unwrap();
         let unit1 = match caps.name("unit1").unwrap().as_str() {
-            "bits" => BitUnit::Bit,
-            "bit" => BitUnit::Bit,
-            "kb" => BitUnit::KB,
-            "mb" => BitUnit::MB,
-            "gb" => BitUnit::GB,
-            "tb" => BitUnit::TB,
+            "byte" => ByteUnit::B,
+            "bytes" => ByteUnit::B,
+            "kb" => ByteUnit::KB,
+            "mb" => ByteUnit::MB,
+            "gb" => ByteUnit::GB,
+            "tb" => ByteUnit::TB,
             _ => return "Wrong input".to_string(),
         };
         let num2: u64 = caps.name("num2").unwrap().as_str().parse().unwrap();
         let unit2 = match caps.name("unit2").unwrap().as_str() {
-            "bits" => BitUnit::Bit,
-            "bit" => BitUnit::Bit,
-            "kb" => BitUnit::KB,
-            "mb" => BitUnit::MB,
-            "gb" => BitUnit::GB,
-            "tb" => BitUnit::TB,
+            "byte" => ByteUnit::B,
+            "bytes" => ByteUnit::B,
+            "kb" => ByteUnit::KB,
+            "mb" => ByteUnit::MB,
+            "gb" => ByteUnit::GB,
+            "tb" => ByteUnit::TB,
             _ => return "Wrong input".to_string(),
         };
 
