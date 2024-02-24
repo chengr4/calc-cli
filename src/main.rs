@@ -16,7 +16,7 @@ enum Functions {
     HW { num: u64 },
     /// `c <N> <K>`: Calculate the combination of N choose K
     C { n: u64, k: u64 },
-    /// Calculate bytes with their respective units
+    /// Calculate the difference in bytes by how many times
     Bytes { expression: String },
 }
 
