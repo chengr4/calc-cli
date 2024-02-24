@@ -40,10 +40,10 @@ impl BitUnit {
     fn to_bits(&self) -> u64 {
         match self {
             BitUnit::Bit => 1,
-            BitUnit::KB => 2u64.pow(10),    // 2^10
-            BitUnit::MB => 2u64.pow(20),    // 2^20
-            BitUnit::GB => 2u64.pow(30),    // 2^30
-            BitUnit::TB => 2u64.pow(40),    // 2^40
+            BitUnit::KB => 2u64.pow(10), // 2^10
+            BitUnit::MB => 2u64.pow(20), // 2^20
+            BitUnit::GB => 2u64.pow(30), // 2^30
+            BitUnit::TB => 2u64.pow(40), // 2^40
         }
     }
 }
