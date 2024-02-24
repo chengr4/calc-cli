@@ -21,7 +21,10 @@ Quickly devide bytes
 
 E.g.
 
-- `rfcalc bytes "4mb/4kb"` => `1024kb`
+```bash
+rfcalc bytes "4mb/4kb"
+1024 kb
+```
 
 ## Testing
 
