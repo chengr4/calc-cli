@@ -16,6 +16,8 @@ enum Functions {
     HW { num: u64 },
     /// `c <N> <K>`: Calculate the combination of N choose K
     C { n: u64, k: u64 },
+    /// Calculate bytes with their respective units
+    Bytes { expression: String },
 }
 
 fn main() {
@@ -35,6 +37,10 @@ fn main() {
         Functions::C { n, k } => {
             let combination = calc::calc_combination(*n, *k);
             println!("{}", combination);
+        }
+        Functions::Bytes { expression } => {
+            let bytes = calc::devide_bytes(expression);
+            println!("{}", bytes);
         }
     }
 }
