@@ -53,6 +53,7 @@ pub fn devide_bytes(expression: &str) -> String {
     if let Some(caps) = re.captures(expression) {
         let num1: u64 = caps.name("num1").unwrap().as_str().parse().unwrap();
         let unit1 = match caps.name("unit1").unwrap().as_str() {
+            "bits" => BitUnit::Bit,
             "bit" => BitUnit::Bit,
             "kb" => BitUnit::KB,
             "mb" => BitUnit::MB,
@@ -62,6 +63,7 @@ pub fn devide_bytes(expression: &str) -> String {
         };
         let num2: u64 = caps.name("num2").unwrap().as_str().parse().unwrap();
         let unit2 = match caps.name("unit2").unwrap().as_str() {
+            "bits" => BitUnit::Bit,
             "bit" => BitUnit::Bit,
             "kb" => BitUnit::KB,
             "mb" => BitUnit::MB,
@@ -79,7 +81,7 @@ pub fn devide_bytes(expression: &str) -> String {
             _ => return "Wrong input".to_string(),
         };
 
-        return format!("{} {}", result, &caps["unit2"]);
+        return format!("{} times", result);
     }
     "Wrong input".to_string()
 }
@@ -113,6 +115,6 @@ mod tests {
     fn four_mb_devide_by_four_kb() {
         let bytes = devide_bytes("4mb / 4kb");
 
-        assert_eq!(bytes, "1024 kb");
+        assert_eq!(bytes, "1024 times");
     }
 }
