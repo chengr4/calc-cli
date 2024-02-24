@@ -1,6 +1,6 @@
 [package]
 name = "rfcalc"
-version = "0.2.1"
+version = "0.3.0"
 edition = "2021"
 authors = ["R4 Cheng <schaffenneu47@gmail.com>"]
 license = "MIT"
