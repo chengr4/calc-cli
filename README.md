@@ -4,7 +4,7 @@
 
 ## Installation
 
-1. Intall Rust
+1. Install Rust and Cargo will be installed, too
 2. Run `cargo install rfcalc`
 
 ## Usage
