@@ -18,6 +18,8 @@ enum Functions {
     C { n: u64, k: u64 },
     /// Calculate the difference in bytes by how many times
     Bytes { expression: String },
+    /// Fahrenheit to Celsius
+    FC { f: f64 },
 }
 
 fn main() {
@@ -41,6 +43,10 @@ fn main() {
         Functions::Bytes { expression } => {
             let bytes = calc::devide_bytes(expression);
             println!("{}", bytes);
+        }
+        Functions::FC { f } => {
+            let c = calc::fahrenheit_to_celsius(*f);
+            println!("{}", c);
         }
     }
 }

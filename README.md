@@ -9,9 +9,12 @@
 
 ## Usage
 
+E.g.
+
 - `rfcalc factorial <NUM>`: Calculate the factorial of a number (max: 20)
 - `rfcalc hw <NUM>`: Calculate the Hamming weight of a binary number
 - `rfcalc c <N> <K>`: Calculate the combination of `N` choose `K`
+- `rfcalc fc <NUM>`: Convert degree from Fahrenheit to Celsius
 
 ### `rfcalc bytes <expression to calculate>`
 
